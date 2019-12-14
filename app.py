@@ -173,6 +173,8 @@ def run_regex(n_clicks,test_text,regex_text) :
 
     if n_clicks is not None and n_clicks>0 :
         for ir in rsplit :
+            if ir == '' :
+                continue
             if ir.startswith("Type:") :
                 sout += ir+"\n"
                 continue
