@@ -11,7 +11,7 @@ dash
 plotly
 ```
 
-Additionally the `stringr` package is required of R.
+Additionally, the `stringr` package is required for the R regexes to function properly.
 
 ## Usage
 
