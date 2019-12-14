@@ -137,8 +137,9 @@ app.layout = html.Div([
 #############################################################
 
 @app.callback(Output('live-update-text', 'value'),
-              [Input('date_checklist_vals', 'value'),Input('subjid_checklist_vals', 'value'),Input('age_checklist_vals', 'value')]
+              [Input('%s_checklist_vals'%(pii_type), 'value') for pii_type in ['date','subjid','age']]
               )
+# TODO: This can definitely be refactored to be more generic
 def update_text(values_date,values_subjid,values_age) :
     sout = ''
     if values_date is not None and len(values_date)>0 : 
