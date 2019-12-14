@@ -6,16 +6,29 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
 
-# List of regex options in json format
-# Is there a better, more dynamical way to load this?
-rvals = json.load(open("regex.json","r"))
-
 ############################################################
 # Pages for each tab
 ############################################################
 
+def get_selector(sel_name) : 
+    # List of regex options in json format
+    # Could this be written to at some point by users?
+    rvals = json.load(open("regex.json","r"))
+    return [
+        html.Hr(),
+        html.Div([
+        html.H5(children=[sel_name]),
+        html.Details([
+        html.Summary('Click to expand/collapse'),
+        dcc.Checklist(
+            id='%s_checklist_vals'%(sel_name.lower()),
+            options=rvals[sel_name]
+        )],),
+        ])
+    ]
+
 def regex_selector_page() :
-    return html.Div([
+    selector_div = [
         html.H4(
             children=['Instructions'],
             style={
@@ -43,29 +56,10 @@ def regex_selector_page() :
             'border-radius': '4px',
             'background-color': '#f8f8f8',
         })]),
-
-        html.Hr(),
-        html.Div([
-        html.H5(children=['DATE']),
-        html.Details([
-        html.Summary('Click to expand/collapse'),
-        dcc.Checklist(
-            id='date_checklist_vals',
-            options=rvals['DATE']
-        )],),
-        ]),
-
-        html.Hr(),
-        html.Div([
-        html.H5(children=['SUBJID']),
-        html.Details([
-        html.Summary('Click to expand/collapse'),
-        dcc.Checklist(
-            id='subjid_checklist_vals',
-            options=rvals['SUBJID']
-        )],),
-        ]),
-    ],className="pretty_container")
+    ]
+    for pii_type in ['DATE','SUBJID','AGE'] : 
+        selector_div.extend(get_selector(pii_type))
+    return html.Div(selector_div, className="pretty_container")
 
 def regex_tester_page() :
     return html.Div([
@@ -122,9 +116,9 @@ app.layout = html.Div([
         'marginLeft': 'auto',
         'marginRight': 'auto'})
     ],
-    style = {'textAlign':'center'}
+    style = {'textAlign':'left'}
     ),
-    html.H1(
+    html.H2(
         children=['CTT DOCS regex tools'],
         style={
             'textAlign': 'center',
@@ -143,9 +137,9 @@ app.layout = html.Div([
 #############################################################
 
 @app.callback(Output('live-update-text', 'value'),
-              [Input('date_checklist_vals', 'value'),Input('subjid_checklist_vals', 'value')]
+              [Input('date_checklist_vals', 'value'),Input('subjid_checklist_vals', 'value'),Input('age_checklist_vals', 'value')]
               )
-def update_text(values_date,values_subjid) :
+def update_text(values_date,values_subjid,values_age) :
     sout = ''
     if values_date is not None and len(values_date)>0 : 
         sout += 'Type: DATE\n'
@@ -154,6 +148,10 @@ def update_text(values_date,values_subjid) :
     if values_subjid is not None and len(values_subjid)>0 :
         sout += 'Type: SUBJID\n'
         sout += '\n'.join(values_subjid)
+        sout += '\n'
+    if values_age is not None and len(values_age)>0 :
+        sout += 'Type: AGE\n'
+        sout += '\n'.join(values_age)
         sout += '\n'
     # Get rid of dangling newline
     if sout.endswith("\n") :
