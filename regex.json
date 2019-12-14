@@ -1,0 +1,39 @@
+{
+    "SUBJID" : [
+        {
+            "label" : "AAAAAA-BBB-CCC-DDD",
+            "value" : "[[:digit:]]{6}-[[:digit:]]{3}-[[:digit:]]{3}-[[:digit:]]{3}"
+        }
+    ],
+    "DATE" : [
+        {
+            "label" : "(DD-)MMM-YY(YY)", 
+            "value" : "([[:digit:]]{2}-)?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-[[:digit:]]{2}([[:digit:]]{2})?" 
+        },
+        {
+            "label": "(DD/)MMM/YY(YY)" , 
+            "value" : "([[:digit:]]{2}/)?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/[[:digit:]]{2}([[:digit:]]{2})?"
+        },
+        {
+            "label": "(DD )MMM YY(YY)" , 
+            "value" : "([[:digit:]]{2}[[:blank:]]{1})?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[[:blank:]]{1}[[:digit:]]{2}([[:digit:]]{2})?"
+        },
+        {
+            "label": "(DD)MMMYY(YY)" , 
+            "value" : "([[:digit:]]{2})?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[[:digit:]]{2}([[:digit:]]{2})?"
+        },
+        {
+            "label": "(Xth)( to )(Yth)( of )(Full month name)" , 
+            "value" : "([[:digit:]]{1,2}(th|st|rd|nd)[[:blank:]](to)[[:blank:]])?[[:digit:]]{1,2}(th|st|rd|nd)[[:blank:]](of)[[:blank:]](JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER|January|February|March|April|May|June|July|August|September|October|November|December)"
+        },
+        {
+            "label": "(?-)(Full month name)-YYYY", 
+            "value" : "(?<!-)(JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER|January|February|March|April|May|June|July|August|September|October|November|December)-[[:digit:]]{4}"
+        },
+        {
+            "label": "(since )(Full month name)( )YYYY" , 
+            "value" : "(?<=((since|Since)[[:blank:]])?)(JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER|January|February|March|April|May|June|July|August|September|October|November|December)[[:blank:]][[:digit:]]{4}"
+        }
+    ]
+}
+

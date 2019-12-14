@@ -1,0 +1,80 @@
+Type: SUBJID
+[[:digit:]]{6}-[[:digit:]]{3}-[[:digit:]]{3}-[[:digit:]]{3}
+Type: DATE
+([[:digit:]]{2}-)?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-[[:digit:]]{2}([[:digit:]]{2})?
+([[:digit:]]{2}/)?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/[[:digit:]]{2}([[:digit:]]{2})?
+([[:digit:]]{2}[[:blank:]]{1})?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[[:blank:]]{1}[[:digit:]]{2}([[:digit:]]{2})?
+([[:digit:]]{2})?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[[:digit:]]{2}([[:digit:]]{2})?
+([[:digit:]]{1,2}(th|st|rd|nd)[[:blank:]](to)[[:blank:]])?[[:digit:]]{1,2}(th|st|rd|nd)[[:blank:]](of)[[:blank:]](JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER|January|February|March|April|May|June|July|August|September|October|November|December)
+(?<!-)(JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER|January|February|March|April|May|June|July|August|September|October|November|December)-[[:digit:]]{4}
+(?<=((since|Since)[[:blank:]])?)(JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER|January|February|March|April|May|June|July|August|September|October|November|December)[[:blank:]][[:digit:]]{4}
+(?<=(since|Since)[[:blank:]])[[:digit:]]{4}
+(?<=(in|In)[[:blank:]])[[:digit:]]{4}
+(?<=(in|In)[[:blank:]]the[[:blank:]])(fall|summer|winter|spring|autumn)
+Labor day
+Labour day
+Veterans day
+Christmas
+Christmas eve
+Christmas day
+Xmas
+Xmas eve
+Xmas day
+Easter
+Easter day
+Easter date
+Easter dates
+Good Friday
+Martin luther king day
+Martin Luther King day
+Presidents Day
+Presidents' Day
+New years
+New years eve
+New years day
+New year day
+New year's day
+New year's eve
+Independence day
+Canada day
+Memorial day
+Memorial holiday
+Thanksgiving
+Thanksgiving day
+Columbus day
+Halloween
+Hallowe'en
+Summer
+Fall
+Winter
+Spring
+Autumn
+Epiphany
+Groundhog Day
+Family Day
+Islander Day
+Commonwealth Day
+Easter Monday
+Easter Sunday
+National Tartan Day
+Vimy Ridge Day
+National Aboriginal Day
+Civic Day
+Provincial Day
+Alaska Day
+Natal Day
+Remembrance Day
+Anniversary of the Statute of Westminster
+Boxing Day
+Valentine's Day
+Nova Scotia Heritage Day
+Louis Riel Day
+St. Patrick's Day
+Victoria Day
+Heritage Day in Alberta
+New Brunswick Day
+British Columbia Day
+Accession Day
+Type: AGE
+[[:digit:]]{1,2}(?=([[:blank:]]|-)(y/o|year|years|(year|years)-old))
+(?<=Age\(yrs\):[[:blank:]])[[:digit:]]{1,2}
