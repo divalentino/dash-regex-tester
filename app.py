@@ -66,12 +66,12 @@ def regex_selector_page() :
 def regex_tester_page() :
     return html.Div([
         html.Div([''],style={'padding': '12px 20px'}),
-        html.Div([html.Button('Run tester', id='run-button',style = {'margin-left': '43%'})]),
+        html.Div([html.Button('Run tester', id='run-button', style = {'background-color':'rgb(19,92,154)','color':'white','margin-left': '43%'})]),
         # html.Div([html.H5(children=['Testing text'])],className="two columns"),
         # html.Div([html.H5(children=['Results'])],className="two columns"),
         # html.Div([''],style={'padding': '12px 20px'}),
         html.H5(children=['Test text']),
-        html.Div([dcc.Textarea(id='test-text',style={
+        html.Div([dcc.Textarea(id='test-text',value='Enter some text here...',style={
             'width' : '50%',
             'height': '300px',
             'padding': '12px 20px',
@@ -151,6 +151,9 @@ def update_text(values_date,values_subjid) :
         sout += 'Type: SUBJID\n'
         sout += '\n'.join(values_subjid)
         sout += '\n'
+    # Get rid of dangling newline
+    if sout.endswith("\n") :
+        sout = sout[0:-1]
     return sout
 
 #############################################################
