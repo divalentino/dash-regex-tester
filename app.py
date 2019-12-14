@@ -45,28 +45,28 @@ def regex_selector_page() :
         })]),
 
         html.Hr(),
+        html.Div([
+            html.H5(children=['DATE']),
+            dcc.Checklist(
+                id='date_checklist_vals',
+                options=rvals['DATE']
+            ),
+        ]),
 
-        html.H5(children=['DATE']),
-
-        dcc.Checklist(
-            id='date_checklist_vals',
-            options=rvals['DATE']
-        ),
         html.Hr(),
-
+        html.Div([
         html.H5(children=['SUBJID']),
-
         dcc.Checklist(
             id='subjid_checklist_vals',
             options=rvals['SUBJID']
         ),
-        html.Hr()
-    ])
+        ]),
+    ],className="pretty_container")
 
 def regex_tester_page() :
     return html.Div([
         html.Div([''],style={'padding': '12px 20px'}),
-        html.Div([html.Button('Run tester', id='run-button', style = {'background-color':'rgb(19,92,154)','color':'white','margin-left': '43%'})]),
+        html.Div([html.Button('Run tester', id='run-button', style = {'background-color':'#1674C8','color':'white','margin-left': '43%'})]),
         # html.Div([html.H5(children=['Testing text'])],className="two columns"),
         # html.Div([html.H5(children=['Results'])],className="two columns"),
         # html.Div([''],style={'padding': '12px 20px'}),
@@ -101,7 +101,7 @@ def regex_tester_page() :
             'background-color': '#f8f8f8',
         })]),
 
-    ])
+    ],className="pretty_container")
 
 ############################################################
 # Main function
