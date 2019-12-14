@@ -4,11 +4,7 @@ import subprocess
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import pandas as pd
-import plotly.graph_objs as go
 from dash.dependencies import Input, Output, State
-import dash_daq as daq
-import dash_table
 
 # List of regex options in json format
 # Is there a better, more dynamical way to load this?
