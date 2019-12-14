@@ -67,7 +67,10 @@ def regex_tester_page() :
     return html.Div([
         html.Div([''],style={'padding': '12px 20px'}),
         html.Div([html.Button('Run tester', id='run-button',style = {'margin-left': '43%'})]),
-        html.H5(children=['Testing text']),
+        # html.Div([html.H5(children=['Testing text'])],className="two columns"),
+        # html.Div([html.H5(children=['Results'])],className="two columns"),
+        # html.Div([''],style={'padding': '12px 20px'}),
+        html.H5(children=['Test text']),
         html.Div([dcc.Textarea(id='test-text',style={
             'width' : '50%',
             'height': '300px',
@@ -159,16 +162,27 @@ def update_text(values_date,values_subjid) :
               [ State('test-text', 'value'),State('regex-text','value') ])
 def run_regex(n_clicks,test_text,regex_text) :
 
+    if n_clicks is None or n_clicks==0 :
+        return 'Results will appear here ...'
+
     sout = ''
 
+    rsplit = []
+    if regex_text is not None : 
+        rsplit = regex_text.split("\n")
+
     if n_clicks is not None and n_clicks>0 :
-        sout = 'No matches found!'
-        results = subprocess.check_output(["./run_regex.sh",test_text,regex_text]).decode().split("\n")
-        print(results)
-        if len(results)>0 and results[0] != '' :
-            sout = ''
-            for res in results :
-                sout += res.replace("[1] ","")+"\n"
+        for ir in rsplit :
+            if ir.startswith("Type:") :
+                sout += ir+"\n"
+                continue
+            results = subprocess.check_output(["./run_regex.sh",test_text,ir]).decode().split("\n")
+            print(results)
+            if len(results)>0 and results[0] != '' :
+                for res in results :
+                    sout += res.replace("[1] ","")+"\n"
+            else :
+                sout += "No matches found!\n"
 
     return sout
 

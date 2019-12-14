@@ -1,0 +1,7 @@
+Type: DATE
+([[:digit:]]{2}-)?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-[[:digit:]]{2}([[:digit:]]{2})?
+([[:digit:]]{2}/)?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/[[:digit:]]{2}([[:digit:]]{2})?
+Type: SUBJID
+[[:digit:]]{6}-[[:digit:]]{3}-[[:digit:]]{3}-[[:digit:]]{3}
+
+Patient 123456-001-001-001 was admitted on 12-JAN-19, had an adverse event of tachycardia in Apr-19, and discharged on 30/May/2019
