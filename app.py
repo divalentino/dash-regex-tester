@@ -46,20 +46,24 @@ def regex_selector_page() :
 
         html.Hr(),
         html.Div([
-            html.H5(children=['DATE']),
-            dcc.Checklist(
-                id='date_checklist_vals',
-                options=rvals['DATE']
-            ),
+        html.H5(children=['DATE']),
+        html.Details([
+        html.Summary('Click to expand/collapse'),
+        dcc.Checklist(
+            id='date_checklist_vals',
+            options=rvals['DATE']
+        )],),
         ]),
 
         html.Hr(),
         html.Div([
         html.H5(children=['SUBJID']),
+        html.Details([
+        html.Summary('Click to expand/collapse'),
         dcc.Checklist(
             id='subjid_checklist_vals',
             options=rvals['SUBJID']
-        ),
+        )],),
         ]),
     ],className="pretty_container")
 
