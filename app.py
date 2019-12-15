@@ -225,6 +225,7 @@ def run_regex(n_clicks,test_text,regex_text) :
             else :
                 sout += "No matches found!\n"
 
+    sout = sout.replace("\n\n","\n")
     return sout
 
 #############################################################
