@@ -46,7 +46,8 @@ from dash.dependencies import Input, Output, State
 def get_selector(sel_name) : 
     # List of regex options in json format
     # Could this be written to at some point by users?
-    rvals = json.load(open("regex.json","r"))
+    rvals   = json.load(open("regex.json","r"))
+    is_open = True if 'date' in sel_name.lower() else False
     return [
         html.Hr(),
         html.Div([
@@ -56,7 +57,7 @@ def get_selector(sel_name) :
         dcc.Checklist(
             id='%s_checklist_vals'%(sel_name.lower()),
             options=rvals[sel_name]
-        )],),
+        )],open=is_open),
         ])
     ]
 
@@ -97,7 +98,7 @@ def regex_selector_page() :
 def regex_tester_page() :
     return html.Div([
         html.Div([''],style={'padding': '12px 20px'}),
-        html.Div([html.Button('Run tester', id='run-button', style = {'background-color':'#1674C8','color':'white','margin-left': '43%'})]),
+        html.Div([html.Button('Test regex', id='run-button', style = {'background-color':'#1674C8','color':'white','margin-left': '43%'})]),
         # html.Div([html.H5(children=['Testing text'])],className="two columns"),
         # html.Div([html.H5(children=['Results'])],className="two columns"),
         # html.Div([''],style={'padding': '12px 20px'}),
