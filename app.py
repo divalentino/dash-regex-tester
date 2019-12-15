@@ -10,6 +10,39 @@ from dash.dependencies import Input, Output, State
 # Pages for each tab
 ############################################################
 
+# Would it make more sense for this to be a table
+# rather than a series of checkboxes?
+# rval_abs = json.load(open('regex.json','r'))
+# def get_table() : 
+
+    # Need to format the data as records here
+    # with PII type in each record
+    # Also need to tie 'plain text' name with regex via
+    # e.g. dictionary
+
+    # return html.Div([
+    #     dash_table.DataTable(
+    #         id='datatable-interactivity',
+    #         columns=[
+    #             {"name": i, "id": i, "deletable": False, "selectable": True} for i in ['pii_type','regex','examples']
+    #         ],
+    #         data=df.to_dict('records'),
+    #         editable=True,
+    #         filter_action="native",
+    #         sort_action="native",
+    #         sort_mode="multi",
+    #         column_selectable="single",
+    #         row_selectable="multi",
+    #         row_deletable=True,
+    #         selected_columns=[],
+    #         selected_rows=[],
+    #         page_action="native",
+    #         page_current= 0,
+    #         page_size= 10,
+    #     ),
+    #     html.Div(id='datatable-interactivity-container')
+    # ])
+
 def get_selector(sel_name) : 
     # List of regex options in json format
     # Could this be written to at some point by users?
@@ -37,7 +70,7 @@ def regex_selector_page() :
             }
         ),
         html.H6(
-            children=['1. Select desired regexes from checklist, 2. Click "Generate regex", 3. Copy results into regex file'],
+            children=['1. Select desired regexes from checklists below, 2. Copy contents of "Regex list" into your regex.txt file'],
             style={
                 'textAlign': 'left',
                 'color': '#404140'
@@ -54,7 +87,7 @@ def regex_selector_page() :
             'box-sizing': 'border-box',
             'border': '1px solid',
             'border-radius': '4px',
-            'background-color': '#f8f8f8',
+            'background-color': '#ffffff',
         })]),
     ]
     for pii_type in ['DATE','SUBJID','AGE'] : 
@@ -76,7 +109,7 @@ def regex_tester_page() :
             'box-sizing': 'border-box',
             'border': '1px solid',
             'border-radius': '4px',
-            'background-color': '#f8f8f8',
+            'background-color': '#ffffff',
         }),
         dcc.Textarea(id='result-text',style={
             'width' : '50%',
@@ -96,7 +129,7 @@ def regex_tester_page() :
             'box-sizing': 'border-box',
             'border': '1px solid',
             'border-radius': '4px',
-            'background-color': '#f8f8f8',
+            'background-color': '#ffffff',
         })]),
 
     ],className="pretty_container")
@@ -125,9 +158,9 @@ app.layout = html.Div([
             'color': '#404140'
         },
     ),
-    dcc.Tabs(id="tabs-example", value='tab-1-example', children=[
-        dcc.Tab(label='Regex selector', children = [regex_selector_page()]), # value='tab-1-example'),
-        dcc.Tab(label='Regex tester', children = [regex_tester_page()]) # value='tab-2-example'),
+    dcc.Tabs(id="tabs-example", value='tab-1-example', parent_className='custom-tabs', className='custom-tabs-container',children=[
+        dcc.Tab(label='Regex selector', children = [regex_selector_page()], className='custom-tab', selected_className='custom-tab--selected'), # value='tab-1-example'),
+        dcc.Tab(label='Regex tester', children = [regex_tester_page()], className='custom-tab', selected_className='custom-tab--selected') # value='tab-2-example'),
     ]),
     html.Div(id='tabs-content-example')
 ],style = {'align-items': 'center', 'justify-content': 'center'})
