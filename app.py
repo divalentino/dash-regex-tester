@@ -159,9 +159,9 @@ app.layout = html.Div([
             'color': '#404140'
         },
     ),
-    dcc.Tabs(id="tabs-example", value='tab-1-example', parent_className='custom-tabs', className='custom-tabs-container',children=[
-        dcc.Tab(label='Regex selector', children = [regex_selector_page()], className='custom-tab', selected_className='custom-tab--selected'), # value='tab-1-example'),
-        dcc.Tab(label='Regex tester', children = [regex_tester_page()], className='custom-tab', selected_className='custom-tab--selected') # value='tab-2-example'),
+    dcc.Tabs(id="tabs-example", parent_className='custom-tabs', className='custom-tabs-container',children=[
+        dcc.Tab(label='Regex selector', children = [regex_selector_page()], className='custom-tab', selected_className='custom-tab--selected'), 
+        dcc.Tab(label='Regex tester', children = [regex_tester_page()], className='custom-tab', selected_className='custom-tab--selected')
     ]),
     html.Div(id='tabs-content-example')
 ],style = {'align-items': 'center', 'justify-content': 'center'})
