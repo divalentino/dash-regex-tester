@@ -1,14 +1,4 @@
 {
-    "AGE" : [
-        {
-            "label" : "1 or 2-digit age(-)(y/o, year, years, year-old, years-old)",
-            "value" : "[[:digit:]]{1,2}(?=([[:blank:]]|-)(y/o|year|years|(year|years)-old))"
-        },
-        {
-            "label" : "(Age(yrs): )1 or 2-digit age",
-            "value" : "(?<=Age\\(yrs\\):[[:blank:]])[[:digit:]]{1,2}"
-        }
-    ],
     "SUBJID" : [
         {
             "label" : "6 digits-3 digits-3 digits-3 digits",
@@ -18,7 +8,7 @@
     "DATE" : [
         {
             "label" : "(DD-)MMM-YY(YY)", 
-            "value" : "([[:digit:]]{2}-)?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-[[:digit:]]{2}([[:digit:]]{2})?"
+            "value" : "([[:digit:]]{2}-)?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-[[:digit:]]{2}([[:digit:]]{2})?" 
         },
         {
             "label": "(DD/)MMM/YY(YY)" , 
