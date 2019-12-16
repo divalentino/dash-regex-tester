@@ -104,16 +104,17 @@ def regex_tester_page() :
         # html.Div([''],style={'padding': '12px 20px'}),
         html.H5(children=['Test text']),
         html.Div([dcc.Textarea(id='test-text',value='Enter some text here...',style={
-            'width' : '50%',
+            'width' : '63%',
             'height': '300px',
             'padding': '12px 20px',
             'box-sizing': 'border-box',
             'border': '1px solid',
             'border-radius': '4px',
             'background-color': '#ffffff',
+            'margin-right' : '22px'
         }),
         dcc.Textarea(id='result-text',style={
-            'width' : '50%',
+            'width' : '35%',
             'height': '300px',
             'padding': '12px 20px',
             'box-sizing': 'border-box',
