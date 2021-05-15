@@ -10,39 +10,6 @@ from dash.dependencies import Input, Output, State
 # Pages for each tab
 ############################################################
 
-# Would it make more sense for this to be a table
-# rather than a series of checkboxes?
-# rval_abs = json.load(open('regex.json','r'))
-# def get_table() : 
-
-    # Need to format the data as records here
-    # with PII type in each record
-    # Also need to tie 'plain text' name with regex via
-    # e.g. dictionary
-
-    # return html.Div([
-    #     dash_table.DataTable(
-    #         id='datatable-interactivity',
-    #         columns=[
-    #             {"name": i, "id": i, "deletable": False, "selectable": True} for i in ['pii_type','regex','examples']
-    #         ],
-    #         data=df.to_dict('records'),
-    #         editable=True,
-    #         filter_action="native",
-    #         sort_action="native",
-    #         sort_mode="multi",
-    #         column_selectable="single",
-    #         row_selectable="multi",
-    #         row_deletable=True,
-    #         selected_columns=[],
-    #         selected_rows=[],
-    #         page_action="native",
-    #         page_current= 0,
-    #         page_size= 10,
-    #     ),
-    #     html.Div(id='datatable-interactivity-container')
-    # ])
-
 def get_selector(sel_name) : 
     # List of regex options in json format
     # Could this be written to at some point by users?
@@ -99,9 +66,6 @@ def regex_tester_page() :
     return html.Div([
         html.Div([''],style={'padding': '12px 20px'}),
         html.Div([html.Button('Test regex', id='run-button', style = {'background-color':'#1674C8','color':'white','margin-left': '43%'})]),
-        # html.Div([html.H5(children=['Testing text'])],className="two columns"),
-        # html.Div([html.H5(children=['Results'])],className="two columns"),
-        # html.Div([''],style={'padding': '12px 20px'}),
         html.H5(children=['Test text']),
         html.Div([dcc.Textarea(id='test-text',value='Enter some text here...',style={
             'width' : '63%',
