@@ -38,7 +38,7 @@ def regex_selector_page() :
             }
         ),
         html.H6(
-            children=['1. Select desired regexes from checklists below, 2. Copy contents of "Regex list" into your regex.txt file'],
+            children=['1. Select desired regexes from checklists below, 2. Copy contents of "Regex list" for later use'],
             style={
                 'textAlign': 'left',
                 'color': '#404140'
@@ -109,28 +109,23 @@ app.config.suppress_callback_exceptions = True
 
 app.layout = html.Div([
     html.Div([
-    html.H2(
-        children=['Regex tester'],
-        style={
-            'textAlign': 'center',
-            'color': '#404140'
-        },
-    ),
-    dcc.Tabs(id="tabs-example", parent_className='custom-tabs', className='custom-tabs-container',children=[
-        dcc.Tab(label='Regex selector', children = [regex_selector_page()], className='custom-tab', selected_className='custom-tab--selected'), 
-        dcc.Tab(label='Regex tester', children = [regex_tester_page()], className='custom-tab', selected_className='custom-tab--selected')
-    ]),
-    html.Div(id='tabs-content-example')
-],style = {'align-items': 'center', 'justify-content': 'center'})
+        html.H2(children=['Regex tester'],style={'textAlign': 'center','color': '#404140'}),
+        dcc.Tabs(id="tabs-example", parent_className='custom-tabs', className='custom-tabs-container',children=[
+            dcc.Tab(label='Regex selector', children = [regex_selector_page()], className='custom-tab', selected_className='custom-tab--selected'), 
+            dcc.Tab(label='Regex tester', children = [regex_tester_page()], className='custom-tab', selected_className='custom-tab--selected')
+    #     ]),
+        ]),
+    html.Div(id='tabs-content-example', style = {'align-items': 'center', 'justify-content': 'center'})
+    ])
+])
 
-#############################################################
-# Callback for updating regex list dynamically
-#############################################################
+# #############################################################
+# # Callback for updating regex list dynamically
+# #############################################################
 
 @app.callback(Output('live-update-text', 'value'),
               [Input('%s_checklist_vals'%(pii_type), 'value') for pii_type in ['date','subjid','age']]
               )
-# TODO: This can definitely be refactored to be more generic
 def update_text(values_date,values_subjid,values_age) :
     sout = ''
     if values_date is not None and len(values_date)>0 : 
