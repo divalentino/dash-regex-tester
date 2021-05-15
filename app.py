@@ -145,16 +145,8 @@ app.config.suppress_callback_exceptions = True
 
 app.layout = html.Div([
     html.Div([
-    html.Img(src=app.get_asset_url('IQVIA-Privacy-Analytics-Logo-rgb.png'),style={
-        'maxWidth': '20%',
-        'maxHeight': '20%',
-        'marginLeft': 'auto',
-        'marginRight': 'auto'})
-    ],
-    style = {'textAlign':'left'}
-    ),
     html.H2(
-        children=['CTT DOCS regex tools'],
+        children=['Regex tester'],
         style={
             'textAlign': 'center',
             'color': '#404140'
